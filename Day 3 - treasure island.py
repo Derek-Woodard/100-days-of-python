@@ -28,31 +28,31 @@ print("Your mission is to find the treasure.")
 #Write your code below this line 👇
 
 # Take first input
-step1 = input('left or right? ').lower()
+step1 = input("You're at a cross road. Where do you want to go? Type \"left\" or \"right\"\n").lower()
 
 # only left leads to game continue, so everything else is a game over
 if step1 != 'left':
-    print('Fall into a hole.\n Game Over.')
+    print('You fell into a hole.\n Game Over.')
     # on game over, exit the program
     exit()
 
-step2 = input('swim or wait ').lower()
+step2 = input('You come to a lake. There is an island in the middle of the lake. Type "wait" to wait for a boat. Type "swim" to swim across.\n').lower()
 
 if step2 != 'wait':
-    print('Attacked by trout.\n Game Over.')
+    print('While swimming across, you are attacked by trout.\n Game Over.')
     exit()
 
-step3 = input('Which door? ').lower()
+step3 = input('You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow and one blue. Which colour do you choose?\n').lower()
 
 if step3 == 'red':
-    print('Burned by fire.\n Game Over.')
+    print('The room you enter is engulfed in flames and you are burned by fire.\n Game Over.')
     exit()
 
 if step3 == 'blue':
-    print('Eaten by beasts.\n Game Over.')
+    print('You enter a room of beasts. Game Over.')
     exit()
 
 if step3 != 'yellow':
     print('Game Over.')
     exit()
-print('You Win!')
+print('You enter the room and find the treassure! You Win!')
