@@ -36,3 +36,6 @@ while len(password) < (nr_letters + nr_symbols + nr_numbers):
         symbols_used += 1
 
 print(f"Your password is: {password}")
+
+# Can create easy version by simply ranomly selecting the characters of each type
+# to make it the hard version, there is a function called random.shuffle() that will randomize the order of a list
