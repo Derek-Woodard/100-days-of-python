@@ -17,10 +17,19 @@ blanks = []
 for i in chosen_word:
     blanks.append("_")
 
+guessed_letters = []
+
 # Start game loop
 while lives_lost < 6:
     # Take user input of one letter - force lower case
     guess = input("Guess a letter: ").lower()
+
+    # If a letter is guessed more than once, remind the player of this and don't punish them
+    if guess in guessed_letters:
+        print(f"You have already guessed {guess}")
+        continue
+    else:
+        guessed_letters.append(guess)
 
     # Compare the user guessed letter to the random word
     guess_in_word = False
