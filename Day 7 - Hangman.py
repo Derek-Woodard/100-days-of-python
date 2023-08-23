@@ -1,81 +1,16 @@
 import random
+import hangman_words
+import hangman_art
 
-print("""\
- _                                             
-| |                                            
-| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
-| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
-| | | | (_| | | | | (_| | | | | | | (_| | | | |
-|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
-                    __/ |                      
-                   |___/  
-""")
+print(hangman_art.logo)
 
-hangman = ["""\
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========""",
-"""\
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========""",
-"""\
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========""",
-"""\
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========""",
-"""\
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========""",
-"""\
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========""",
-"""\
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========""",]
-
-# Set up a list of words that can be used as solutions
-word_list = ["ardvark", "baboon", "camel"]
+hangman = hangman_art.hangman
 
 # Set up number of lives that user has to lose
 lives_lost = 0
 
 # Pick random word for the user to guess from the word list
-chosen_word = random.choice(word_list)
+chosen_word = random.choice(hangman_words.word_list)
 
 # Generate a number of blanks equal to the number of letters in the random word
 blanks = []
