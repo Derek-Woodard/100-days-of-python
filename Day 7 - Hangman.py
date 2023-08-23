@@ -1,6 +1,7 @@
 import random
 import hangman_words
 import hangman_art
+# from replit import clear
 
 print(hangman_art.logo)
 
@@ -23,6 +24,9 @@ guessed_letters = []
 while lives_lost < 6:
     # Take user input of one letter - force lower case
     guess = input("Guess a letter: ").lower()
+
+    # Clear the screen to make it easier to read
+    # clear()
 
     # If a letter is guessed more than once, remind the player of this and don't punish them
     if guess in guessed_letters:
