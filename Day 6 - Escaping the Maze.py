@@ -2,6 +2,7 @@
 
 #See following for code to solve maze
 
+
 def turn_right():
     turn_left()
     turn_left()
@@ -9,12 +10,12 @@ def turn_right():
     
 looping = 0
 while not at_goal():
-    if wall_on_right() and front_is_clear():
-        move()
-        looping = 0
-    elif not wall_on_right() and looping < 4:
+    if right_is_clear() and looping < 4:
         turn_right()
         move()
         looping += 1
-    elif wall_in_front() and wall_on_right():
+    elif front_is_clear():
+        move()
+        looping = 0
+    else:
         turn_left()
