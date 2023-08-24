@@ -18,10 +18,12 @@ def caesar(message, shift, direction):
                 new_index = letter_index - shift
 
             # wrap around if index goes out of bounds of alphabet list
-            if new_index > len(alphabet):
-                new_index -= len(alphabet)
-            if new_index < 0:
-                new_index += len(alphabet)
+            while new_index > len(alphabet) or new_index < 0:
+                if new_index > len(alphabet):
+                    new_index -= len(alphabet)
+                if new_index < 0:
+                    new_index += len(alphabet)
+                    
             new_message += alphabet[new_index]
 
         # If the character is not in the alphabet, simply put the symbol in the encrypted message
