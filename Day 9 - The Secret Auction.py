@@ -12,8 +12,10 @@
 # can use for loop to get definition by using dictionary[i] in loop
 
 from secret_auction_art import logo
+import os
 
 print(logo)
+print("Welcome to the secret auction program.")
 
 # Create an emptry dictionary to fill with all bidders
 bidders = {}
@@ -30,7 +32,7 @@ while more_bidders:
     more = input("Are there any other bidders? Type 'yes' or 'no'. ").lower()
 
     # Clear the screen
-    
+    os.system('cls')
 
     # If there are no more bidders, finish the loop to determine the highest bidder
     if more == 'no':
