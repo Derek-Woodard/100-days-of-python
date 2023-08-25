@@ -23,9 +23,9 @@ more_bidders = True
 
 while more_bidders:
     name = input("What is your name?: ")
-    bid = input("What is your bid?: $")
+    bid = int(input("What is your bid?: $"))
 
-
+    bidders[name] = bid
 
     more = input("Are there any other bidders? Type 'yes' or 'no'. ").lower()
 
@@ -35,3 +35,11 @@ while more_bidders:
     # If there are no more bidders, finish the loop to determine the highest bidder
     if more == 'no':
         more_bidders = False
+
+highest_bid = 0
+for bidder in bidders:
+    if bidders[bidder] > highest_bid:
+        highest_bid = bidders[bidder]
+        highest_bidder = bidder
+
+print(f"The winner is {highest_bidder} with a bid of {highest_bid}.")
