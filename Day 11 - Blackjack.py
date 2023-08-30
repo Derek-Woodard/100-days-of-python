@@ -51,7 +51,7 @@ while playing:
     dealer_score = find_score(dealer_cards)
 
     # inner loop starts
-    while player_score < 21 and more_cards:
+    while player_score < 22 and more_cards:
 
         # Display the player's cards and score
         print(f'Your cards: {player_cards}, current score: {player_score}')
