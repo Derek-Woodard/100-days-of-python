@@ -2,8 +2,8 @@ from blackjack_art import logo
 import random
 import os
 
-# a function that deals the initial cards to the player and the computer
 def deal(p_cards, d_cards):
+    """a function that deals the initial cards to the player and the computer"""
     for i in range(4):
         card = random.choice(cards)
         # As cards are added to the hands, they are removed from the deck
@@ -13,21 +13,21 @@ def deal(p_cards, d_cards):
         else:
             dealer_cards.append(card)
 
-# A function that removes one card from the deck and adds it to the hand of the hand used as input
 def hit_me(hand):
+    """A function that removes one card from the deck and adds it to the hand of the hand used as input"""
     card = random.choice(cards)
     cards.remove(card)
     hand.append(card)
 
-# A function that determines the score of the hand used as input
 def find_score(cards):
+    """A function that determines the score of the hand used as input"""
     score = 0
     for card in cards:
         score += card
     return score
 
-# determine if an ace is worth 1 or 11
 def ace_check(cards):
+    """determine if an ace is worth 1 or 11"""
     if 11 in cards:
         total = find_score(cards)
         if total > 21:
@@ -39,8 +39,6 @@ def ace_check(cards):
                     new_hand.append(cards[i])
             return new_hand
     return cards
-
-
 
 # A condition for playing the game
 playing = True
@@ -54,6 +52,9 @@ while playing:
     # A list representing the values of a deck of cards
     cards = [11,11,11,11,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]
 
+    # A condition for checking if the player or dealer get Blackjack (ace and a 10)
+    blackjack = [False]
+
     # Initiate the two hands and deal the first two cards to each
     player_cards = []
     dealer_cards = []
@@ -66,8 +67,16 @@ while playing:
     player_score = find_score(player_cards)
     dealer_score = find_score(dealer_cards)
 
+    # check for blackjack
+    if player_score == 21:
+        blackjack[0] = True
+        blackjack.append('p')
+    elif dealer_score == 21:
+        blackjack[0] = True
+        blackjack.append('d')
+
     # inner loop starts
-    while player_score < 22 and more_cards:
+    while player_score < 22 and more_cards and not blackjack[0]:
 
         # Display the player's cards and score
         print(f'Your cards: {player_cards}, current score: {player_score}')
@@ -109,15 +118,23 @@ while playing:
     print(f"Your final hand: {player_cards}, final score: {player_score}")
     print(f"Computer's final hand: {dealer_cards}, final score: {dealer_score}")
 
-    # Determine if the player won or lost.
-    if player_score > 21:
-        print("You went over. You lose.")
-    elif player_score < dealer_score and dealer_score <= 21:
-        print("You lose.")
-    elif player_score == dealer_score:
-        print("It's a draw.")
-    elif dealer_score > 21 or player_score > dealer_score:
-        print("You win!")
+    # special blackjack condition for winning
+    if blackjack[0]:
+        if blackjack[1] == 'p':
+            print("Blackjack! You win!")
+        else:
+            print("Blackjack! You lose.")
+
+    else:
+        # Determine if the player won or lost.
+        if player_score > 21:
+            print("You went over. You lose.")
+        elif player_score < dealer_score and dealer_score <= 21:
+            print("You lose.")
+        elif player_score == dealer_score:
+            print("It's a draw.")
+        elif dealer_score > 21 or player_score > dealer_score:
+            print("You win!")
 
     # Ask the player if they want to play again.
     play = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
