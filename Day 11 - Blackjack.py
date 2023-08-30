@@ -1,6 +1,3 @@
-# features to add
-# Ace can be either 1 or 11 - initially ace counts as 11, unless it pushes the player score over 21
-
 from blackjack_art import logo
 import random
 import os
