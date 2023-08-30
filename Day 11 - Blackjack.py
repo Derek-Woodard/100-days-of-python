@@ -1,3 +1,9 @@
+# features to add
+# Ace can be either 1 or 11 - initially ace counts as 11, unless it pushes the player score over 21
+# may need to use dictionaries after all as the deck of cards
+# if dealer ends up with a score under 17, they need to take a card
+# dealer should score based on player score as they shouldn't be able to see it
+
 from blackjack_art import logo
 import random
 import os
