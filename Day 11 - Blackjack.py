@@ -62,8 +62,8 @@ while playing:
         # Display the player's cards and score
         print(f'Your cards: {player_cards}, current score: {player_score}')
         
-        # Computer/dealer only takes cards if their score is lower than the players and they are below 21
-        if(dealer_score < 21 and dealer_score < player_score):
+        # Computer/dealer only takes cards if their score is lower than 17
+        if(dealer_score < 17):
             hit_me(dealer_cards)
             dealer_score = find_score(dealer_cards)
             
@@ -81,10 +81,10 @@ while playing:
             hit_me(player_cards)
             more_cards = True
 
-        # If the player doesn't want any more cards, end the loop and allow the computer to get their score higher than the players
+        # If the player doesn't want any more cards, end the loop and allow the computer to get their score higher than 17
         else:
             more_cards = False
-            while dealer_score <= player_score and dealer_score < 21:
+            while dealer_score < 17:
                 hit_me(dealer_cards)
                 dealer_score = find_score(dealer_cards)
 
