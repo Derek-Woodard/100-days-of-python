@@ -1,15 +1,9 @@
 # features to add
 # Ace can be either 1 or 11 - initially ace counts as 11, unless it pushes the player score over 21
-# may need to use dictionaries after all as the deck of cards
-# if dealer ends up with a score under 17, they need to take a card
-# dealer should score based on player score as they shouldn't be able to see it
 
 from blackjack_art import logo
 import random
 import os
-
-# A list representing the values of a deck of cards
-cards = [1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]
 
 # a function that deals the initial cards to the player and the computer
 def deal(p_cards, d_cards):
@@ -35,6 +29,22 @@ def find_score(cards):
         score += card
     return score
 
+# determine if an ace is worth 1 or 11
+def ace_check(cards):
+    if 11 in cards:
+        total = find_score(cards)
+        if total > 21:
+            new_hand = []
+            for i in range(len(cards)):
+                if cards[i] == 11:
+                    new_hand.append(1)
+                else:
+                    new_hand.append(cards[i])
+            return new_hand
+    return cards
+
+
+
 # A condition for playing the game
 playing = True
 
@@ -43,7 +53,10 @@ while playing:
     # Clear the screen and re-print the logo at the start of each game.
     os.system('cls')
     print(logo)
-    
+
+    # A list representing the values of a deck of cards
+    cards = [11,11,11,11,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]
+
     # Initiate the two hands and deal the first two cards to each
     player_cards = []
     dealer_cards = []
@@ -65,6 +78,7 @@ while playing:
         # Computer/dealer only takes cards if their score is lower than 17
         if(dealer_score < 17):
             hit_me(dealer_cards)
+            dealer_cards = ace_check(dealer_cards)
             dealer_score = find_score(dealer_cards)
             
         # inform the player of the computer's first card (or if they don't take one)
@@ -79,6 +93,7 @@ while playing:
         # if the player wants another card, deal them a new card then continue the loop
         if keep_playing == 'y':
             hit_me(player_cards)
+            player_cards = ace_check(player_cards)
             more_cards = True
 
         # If the player doesn't want any more cards, end the loop and allow the computer to get their score higher than 17
@@ -86,6 +101,7 @@ while playing:
             more_cards = False
             while dealer_score < 17:
                 hit_me(dealer_cards)
+                dealer_cards = ace_check(dealer_cards)
                 dealer_score = find_score(dealer_cards)
 
         # Update the scores
