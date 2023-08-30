@@ -58,7 +58,8 @@ while playing:
         
         # Computer/dealer only takes cards if their score is lower than the players and they are below 21
         if(dealer_score < 21 and dealer_score < player_score):
-           hit_me(dealer_cards)
+            hit_me(dealer_cards)
+            dealer_score = find_score(dealer_cards)
             
         # inform the player of the computer's first card (or if they don't take one)
         if len(dealer_cards) > 2:
