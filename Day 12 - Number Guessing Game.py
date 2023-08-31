@@ -35,17 +35,20 @@ while keep_playing:
         guesses = 5
 
     # begin the guessing loop
-    while guesses > 0:
+    while guesses >= 0:
+
+        # If the player runs out of guesses
+        if guesses == 0:
+            print("You've run out of guesses, you lose.")
+            break
+
         print(f"You have {guesses} attempts remaining to guess the number.")
-        attempt = input("Make a guess: ")
+        attempt = int(input("Make a guess: "))
 
         # If the guess is the correct number the player wins
         if attempt == number:
             print(f"You got it! The answer was {number}.")
-            more = input("Do you want to play again? Type 'y' or 'n': ")
-
-            if more == 'n':
-                keep_playing = False
+            break
         
         # if the guess is higher than the number, tell the player
         elif attempt > number:
@@ -53,6 +56,11 @@ while keep_playing:
         
         # If the guess is lower than the number, tell the player
         else:
-            print("Too Low.\nGuess again")
+            print("Too Low.\nGuess again")            
 
         guesses -= 1
+
+    # Ask if the player wants to play another round
+    more = input("Do you want to play again? Type 'y' or 'n': ")
+    if more == 'n':
+        keep_playing = False
