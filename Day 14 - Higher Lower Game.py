@@ -20,6 +20,26 @@ def compare(p_1, p_2):
     else:
         return p_2
 
+def display_choices(p_1, p_2):
+    '''Display the choices for the player'''
+    print(f"Compare A: {person_1['name']}, a {person_1['description']}, from {person_1['country']}.")
+    print(vs)
+    print(f"Against B: {person_2['name']}, a {person_2['description']}, from {person_2['country']}")
+
+def player_guess(guess, p_1, p_2):
+    '''check if player guess is correct'''
+    if guess == 'a':
+        choice = p_1
+    else:
+        choice = p_2
+
+    higher = compare(person_1, person_2)
+
+    if choice == higher:
+        return True
+    else:
+        return False
+
 keep_playing = True
 # Outer loop for reseting the game
 while keep_playing:
@@ -36,32 +56,12 @@ while keep_playing:
         if score != 0:
             print(f"You're right! Current score: {score}")
 
-        # pick two random selections from the data list.
-        # display their information. ex:
-        # Compare A: Taylor Swift, a Musician, from United States.
-        # print the vs art
-        # then print the second choice
-        # remove the two selected choices from the list?
-        # Ask "Who has more followers? Type 'A' of 'B': "
-        # player inputs - compare the follower amount of the selections
-        # if correct, add 1 to score, then clear screen, show the score and display a  new comparison
-        # if incorrect, display a final score and ask if they want to play again.
-
         person_1, person_2 = select_people()
-        print(f"Compare A: {person_1['name']}, a {person_1['description']}, from {person_1['country']}.")
-        print(vs)
-        print(f"Against B: {person_2['name']}, a {person_2['description']}, from {person_2['country']}")
+        display_choices(person_1, person_2)
+
         guess = input("Who has more followers? Type 'A' or 'B': ").lower()
 
-        if guess == 'a':
-            choice = person_1
-        else:
-            choice = person_2
-
-        higher = compare(person_1, person_2)
-        print(higher)
-
-        if choice == higher:
+        if player_guess(guess, person_1, person_2):
             score += 1
         else:
             playing = False
