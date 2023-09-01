@@ -5,16 +5,24 @@ import os
 
 
 def select_people():
-    # Select two people from the data list at random
+    '''Select two people from the data list at random'''
     num_1 = random.choice(range(1,51))
     num_2 = random.choice(range(1,51))
     while num_2 == num_1: 
         num_2 = random.choice(range(0,50))
 
     return data[num_1], data[num_2]
-#playing = True
 
+def compare(p_1, p_2):
+    '''Compare two dictionaries to determine which has more followers. Return the person with more.'''
+    if p_1['follower_count'] > p_2['follower_count']:
+        return p_1
+    else:
+        return p_2
+
+#playing = True
 #while playing:
+os.system('cls')
 print(logo)
 
 # pick two random selections from the data list.
@@ -29,8 +37,7 @@ print(logo)
 # if incorrect, display a final score and ask if they want to play again.
 
 person_1, person_2 = select_people()
-
-
-
-print(person_1)
-print(person_2)
+print(f"Compare A: {person_1['name']}, a {person_1['description']}, from {person_1['country']}.")
+print(vs)
+print(f"Against B: {person_2['name']}, a {person_2['description']}, from {person_2['country']}")
+guess = input("Who has more followers? Type 'A' or 'B': ").lower()
