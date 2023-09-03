@@ -73,7 +73,6 @@ money = 0.0
 
 while machine_on:
     coffee_choice = input("What would you like? (espresso/latte/cappuccino): ")
-
     # Turn off the coffee machine (ie stop the program)
     if coffee_choice == 'off':
         exit()
@@ -86,7 +85,7 @@ while machine_on:
         print(f"Money: ${money}")
         
     # If a spelling mistake is made or there is a typo, inform the user and loop back
-    if coffee_choice != 'espresso' and coffee_choice != 'latte' and coffee_choice != 'cappucino':
+    if coffee_choice != 'espresso' and coffee_choice != 'latte' and coffee_choice != 'cappuccino':
         print("Sorry, that is not a valid selection.")
         continue
 
