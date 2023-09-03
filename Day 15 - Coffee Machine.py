@@ -16,6 +16,14 @@ def check_resources(drink):
 
     return short
 
+def calculate_value(value, number):
+    '''A function that calculates the value of any number of coins of any value.'''
+    return value * number
+
+def enough_cash(drink, cash):
+    '''Check to see if the amount of money inserted is enough for the drink selected. return the missing amount or change due.'''
+    return cash - MENU[drink]["cost"]
+
 MENU = {
     "espresso": {
         "ingredients": {
@@ -90,4 +98,26 @@ while machine_on:
         print(f"Sorry, there is not enough: {shorted}")
         continue    
 
+    # Ask the user to insert their coins
+    print("Please insert coins.")
+    inserted = 0.0
+    inserted += calculate_value(0.25, input("How many quarters?: "))
+    inserted += calculate_value(0.10, input("How many dimes?: "))
+    inserted += calculate_value(0.05, input("How many nickels?: "))
+    inserted += calculate_value(0.01, input("How many pennies?: "))
+
+    # Check if enough cash is inserted. Refund any extra.
+    if enough_cash(coffee_choice, inserted) < 0:
+        print("Sorry, that's not enough money. Money refunded.")
+        continue
+    elif enough_cash(coffee_choice, inserted) > 0:
+        print(f"Here is ${enough_cash(coffee_choice, inserted)} in change.")
     
+    # Reduce the resources by the amount of the drink requested and add the cost to the current amount of money.
+    resources["coffee"] -= MENU[coffee_choice]["ingredients"]["coffee"]
+    resources["milk"] -= MENU[coffee_choice]["ingredients"]["milk"]
+    resources["water"] -= MENU[coffee_choice]["ingredients"]["water"]
+    money += MENU[coffee_choice]["cost"]
+
+    # Give the drink to the user.
+    print(f"Here is youy {coffee_choice}! Enjoy!")
