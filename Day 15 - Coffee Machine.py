@@ -7,11 +7,11 @@ def check_resources(drink):
     '''Check if there are enough resources available to make the drink - return a list of all ingrediants that are short.'''
     short = []
 
-    if resources["water"] < MENU[drink]["ingrediants"]["water"]:
+    if resources["water"] < MENU[drink]["ingredients"]["water"]:
         short.append("water")
-    if resources["milk"] < MENU[drink]["ingrediants"]["milk"]:
+    if resources["milk"] < MENU[drink]["ingredients"]["milk"]:
         short.append("milk")
-    if resources["coffee"] < MENU[drink]["ingrediants"]["coffee"]:
+    if resources["coffee"] < MENU[drink]["ingredients"]["coffee"]:
         short.append("coffee")
 
     return short
@@ -76,6 +76,11 @@ while machine_on:
         print(f"Milk: {resources['water']}ml")
         print(f"Coffee: {resources['coffee']}g")
         print(f"Money: ${money}")
+        
+    # If a spelling mistake is made or there is a typo, inform the user and loop back
+    if coffee_choice != 'espresso' and coffee_choice != 'latte' and coffee_choice != 'cappucino':
+        print("Sorry, that is not a valid selection.")
+        continue
 
     # Check to see if there are enough ingredients for the selected drink
     shorted = check_resources(coffee_choice)
