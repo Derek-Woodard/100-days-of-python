@@ -3,10 +3,24 @@ A program that replicates the functionality of a coffee machine - customers purc
 They pay for their drinks, then the resources in the coffee machine get depleted
 '''
 
+def check_resources(drink):
+    '''Check if there are enough resources available to make the drink - return a list of all ingrediants that are short.'''
+    short = []
+
+    if resources["water"] < MENU[drink]["ingrediants"]["water"]:
+        short.append("water")
+    if resources["milk"] < MENU[drink]["ingrediants"]["milk"]:
+        short.append("milk")
+    if resources["coffee"] < MENU[drink]["ingrediants"]["coffee"]:
+        short.append("coffee")
+
+    return short
+
 MENU = {
     "espresso": {
         "ingredients": {
             "water": 50,
+            "milk": 0,
             "coffee": 18,
         },
         "cost": 1.5,
@@ -52,13 +66,23 @@ money = 0.0
 while machine_on:
     coffee_choice = input("What would you like? (espresso/latte/cappuccino): ")
 
+    # Turn off the coffee machine (ie stop the program)
     if coffee_choice == 'off':
         exit()
 
+    # Print a report on how many ingerdients there are
     elif coffee_choice == 'report':
         print(f"Water: {resources['water']}ml")
         print(f"Milk: {resources['water']}ml")
         print(f"Coffee: {resources['coffee']}g")
         print(f"Money: ${money}")
+
+    # Check to see if there are enough ingredients for the selected drink
+    shorted = check_resources(coffee_choice)
+
+    # If there are not enough resources available, tell the user, then loop back to the begining.
+    if len(shorted) > 0:
+        print(f"Sorry, there is not enough: {shorted}")
+        continue    
 
     
