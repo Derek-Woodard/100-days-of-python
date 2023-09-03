@@ -101,10 +101,10 @@ while machine_on:
     # Ask the user to insert their coins
     print("Please insert coins.")
     inserted = 0.0
-    inserted += calculate_value(0.25, input("How many quarters?: "))
-    inserted += calculate_value(0.10, input("How many dimes?: "))
-    inserted += calculate_value(0.05, input("How many nickels?: "))
-    inserted += calculate_value(0.01, input("How many pennies?: "))
+    inserted += calculate_value(0.25, float(input("How many quarters?: ")))
+    inserted += calculate_value(0.10, float(input("How many dimes?: ")))
+    inserted += calculate_value(0.05, float(input("How many nickels?: ")))
+    inserted += calculate_value(0.01, float(input("How many pennies?: ")))
 
     # Check if enough cash is inserted. Refund any extra.
     if enough_cash(coffee_choice, inserted) < 0:
@@ -120,4 +120,4 @@ while machine_on:
     money += MENU[coffee_choice]["cost"]
 
     # Give the drink to the user.
-    print(f"Here is youy {coffee_choice}! Enjoy!")
+    print(f"Here is your {coffee_choice}! Enjoy!")
