@@ -3,6 +3,9 @@ A program that replicates the functionality of a coffee machine - customers purc
 They pay for their drinks, then the resources in the coffee machine get depleted
 '''
 
+# Multi-line editing shortcut - hold ALT and SHIFT then click and hold on a line and drag the cursor down - gives multiple cursors
+# Using this, you can type the same thing over multuple lines - useful for multiple print statements.
+
 def check_resources(drink):
     '''Check if there are enough resources available to make the drink - return a list of all ingrediants that are short.'''
     short = []
@@ -57,16 +60,6 @@ resources = {
     "coffee": 100,
 }
 
-# Start by asking what the user would like, espresso/latte/cappuccino
-# tell user to insert coins
-# ask for quarters, then dimes, then nickels, then pennies.
-# if the coins add up to more than the cost of the drink, tell the user what they get back in change
-# Then give them their coffee using an emoji as well.
-# if the coins don't add up to the cost, refund the user then ask what they would like again.
-# track resources in the machine - each drinks takes a certain amount
-# if a drink requires more of a resource than is available, say there is not enough.
-# to do more, add funtcionality to refill the resources?
-
 machine_on = True
 
 money = 0.0
@@ -83,6 +76,9 @@ while machine_on:
         print(f"Milk: {resources['water']}ml")
         print(f"Coffee: {resources['coffee']}g")
         print(f"Money: ${money}")
+
+    # TODO add funtcionality to refill the resources?
+
         
     # If a spelling mistake is made or there is a typo, inform the user and loop back
     if coffee_choice != 'espresso' and coffee_choice != 'latte' and coffee_choice != 'cappuccino':
