@@ -10,7 +10,8 @@ mm = MoneyMachine()
 ordering = True
 
 while ordering:
-    choice = input("What would you like? (espresso/latte/cappucinno)")
+    options = menu.get_items()
+    choice = input(f"What would you like? {options}")
 
     if choice == 'report':
         cm.report()
