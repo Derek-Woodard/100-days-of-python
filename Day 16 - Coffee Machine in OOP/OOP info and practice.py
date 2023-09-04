@@ -1,4 +1,3 @@
-
 # Making the coffee machine program from day 15 using Object Oriented Programmin (OOP)
 # Day 15 was made using procedural programming - working top to bottom, then jumping into a function when needed.
 # OOP using a modular approach
@@ -20,27 +19,33 @@
 # example - prettytable - https://pypi.org/project/prettytable/
 # packages need to be installed - for prettytables type the following into the terminal on VScode
 # pip install prettytable
-# 
 
 # Turtle starting code
-from turtle import Turtle, Screen
+# from turtle import Turtle, Screen
 
-# joel is an object made into the class: Turtle
-joel = Turtle()
-# From the turtle graphics library you can change the shape of the turtle: https://docs.python.org/3/library/turtle.html
-joel.shape("turtle")
-joel.color("coral")
-joel.forward(100)
+# # joel is an object made into the class: Turtle
+# joel = Turtle()
+# # From the turtle graphics library you can change the shape of the turtle: https://docs.python.org/3/library/turtle.html
+# joel.shape("turtle")
+# joel.color("coral")
+# joel.forward(100)
 
-# The screen is part of turtle representing the screen the turtle appears on
-my_screen = Screen()
-# print(my_screen.canvheight)
+# # The screen is part of turtle representing the screen the turtle appears on
+# my_screen = Screen()
+# # print(my_screen.canvheight)
 
-# joel has attributes that can be accessed
-# to access them, use joel.attribute
+# # joel has attributes that can be accessed
+# # to access them, use joel.attribute
 
-# This function allows the program to continue running until the user clicks on the screen
-my_screen.exitonclick()
+# # This function allows the program to continue running until the user clicks on the screen
+# my_screen.exitonclick()
 
 from prettytable import PrettyTable
 table = PrettyTable()
+table.add_column("Pokemon Name", ["Pikachu", "Squirtle", "Charmander"])
+table.add_column("Type", ["Electric", "Water", "Fire"])
+
+# change table allignment to left - 'l'
+table.align = "l"
+
+print(table)
