@@ -1,6 +1,7 @@
 
 
-class QuestionModel:
-    def __init__(self):
-        pass
-    pass
+class Question:
+
+    def __init__(self, q_text, a_text):
+        self.question = q_text
+        self.answer = a_text
