@@ -7,7 +7,7 @@ from data import question_data
 # create the question bank using the question model and the data
 question_bank = []
 for item in question_data:
-    question_bank.append(Question(item["text"], item["answer"]))
+    question_bank.append(Question(item["question"], item["correct_answer"]))
 
 quiz = QuizBrain(question_bank)
 
