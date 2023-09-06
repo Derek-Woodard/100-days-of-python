@@ -62,15 +62,28 @@ def pick_direction():
     '''Randomly return a random direction.'''
     return random.choice([0,90,180,270])
 
-joce.pensize(11)
-joce.speed(10)
+# joce.pensize(11)
+joce.speed(0)
 
-for _ in range(200):
+# for _ in range(200):
+#     joce = change_colour(joce)
+#     direction = pick_direction()
+#     joce.setheading(direction)
+#     joce.forward(25)
+
+
+# tuples can be made using - my_tuple = (1, 2, 3)
+# to access tuple parameters - my_tuple[1]
+# tuples, unlike lists, cannot be changed - the parameters are permenant - immutable
+# tuples are good when you want to have an unchangable thing
+# can convert a tuple to a list by using - list(my_tuple)
+
+# make a spirograph - turtle draws many circles each with a radius of 100 
+# draws a complete loop, then stops
+for _ in range(73):
     joce = change_colour(joce)
-    direction = pick_direction()
-    joce.setheading(direction)
-    joce.forward(25)
-
+    joce.circle(100)
+    joce.left(5)
 
 # these need to be at the bottom of the file after the turtle does everything it needs to do
 # use documentation to see why
