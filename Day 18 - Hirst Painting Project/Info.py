@@ -38,7 +38,7 @@ joce.pencolor("red")
 #     joce.forward(10)
 #     joce.pendown()
 
-# draw shapes with 3 sides up to 10 sides in sequence, all with 100 length sides and different random colours per shape
+# # draw shapes with 3 sides up to 10 sides in sequence, all with 100 length sides and different random colours per shape
 def change_colour(turt):
     '''Change the input turtle to a random colour. Retrun the new coloured turtle.'''
     R = random.randint(0,255)
@@ -48,15 +48,28 @@ def change_colour(turt):
     turt.pencolor((R, G, B))
     return turt
 
+# for sides in range(3, 11):
+#     joce = change_colour(joce)
+#     for _ in range(sides):
+#         joce.forward(100)
+#         joce.right(360 / sides)
 
+# generate a random walk - turtle makes random moves in N/S/E/W direction
+# turtle always moves the same distance, then randomly picks a new direction.
+# colour of line changes every time the turtle moves.
 
-for sides in range(3, 11):
+def pick_direction():
+    '''Randomly return a random direction.'''
+    return random.choice([0,90,180,270])
+
+joce.pensize(11)
+joce.speed(10)
+
+for _ in range(200):
     joce = change_colour(joce)
-    for _ in range(sides):
-        joce.forward(100)
-        joce.right(360 / sides)
-
-
+    direction = pick_direction()
+    joce.setheading(direction)
+    joce.forward(25)
 
 
 # these need to be at the bottom of the file after the turtle does everything it needs to do
