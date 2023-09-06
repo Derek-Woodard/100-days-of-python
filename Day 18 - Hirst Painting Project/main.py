@@ -1,12 +1,13 @@
-
+'''Use the turtle module to paint a Hirst dot painting.'''
 import random
 from turtle import Turtle, Screen
-import colorgram
+# import colorgram
 
 
 # colorgram info found here: https://pypi.org/project/colorgram.py/
 
-# Below is used to extract and create a list of colours - for simplicity, that list is copied and made into a list.
+# Below is used to extract and create a list of colours
+# for simplicity, that list is copied and made into a list.
 # # extract colours from the image
 # extracted_colours = colorgram.extract("Hirst_image.jpg", 30)
 
@@ -29,10 +30,9 @@ colours = [(44, 95, 148), (179, 46, 75), (227, 208, 100), (209, 156, 88), (179, 
             (174, 186, 220), (156, 206, 217), (234, 171, 162), (51, 54, 70), (211, 209, 39),
             (87, 43, 32)]
 
-#TODO make a painting with 10 x 10 rows of dots
-#TODO the dots are about 20 pixels radius and spaced 50 apart
-
 def set_colour(turtle):
+    '''Change the input turtle to a random colour from the selection. 
+    Return the new coloured turtle.'''
     colour = random.choice(colours)
     turtle.color(colour)
     return turtle
