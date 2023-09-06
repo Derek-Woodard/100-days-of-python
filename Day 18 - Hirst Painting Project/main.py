@@ -32,3 +32,45 @@ colours = [(44, 95, 148), (179, 46, 75), (227, 208, 100), (209, 156, 88), (179, 
 #TODO make a painting with 10 x 10 rows of dots
 #TODO the dots are about 20 pixels radius and spaced 50 apart
 
+def set_colour(turtle):
+    colour = random.choice(colours)
+    turtle.color(colour)
+    return turtle
+
+turt = Turtle()
+screen = Screen()
+screen.colormode(255)
+turt.speed(0)
+
+CIRCLE_RADIUS = 20
+CIRCLE_GAP = 50
+CIRCLES_UP = 10
+CIRCLES_SIDE = 10
+SCREEN_X = (CIRCLE_RADIUS * CIRCLES_UP) + (CIRCLE_GAP * (CIRCLES_UP) - CIRCLE_RADIUS)
+SCREEN_Y = (CIRCLE_RADIUS * CIRCLES_SIDE) + (CIRCLE_GAP * (CIRCLES_SIDE) - CIRCLE_RADIUS)
+
+screen.setup(SCREEN_X, SCREEN_Y)
+
+turt.penup()
+turt.setpos(-(SCREEN_X / 2), (SCREEN_Y / 2) - CIRCLE_RADIUS)
+turt.setheading(270)
+
+for _ in range(CIRCLES_SIDE):
+    for _ in range(CIRCLES_UP):
+        turt.pendown()
+        turt = set_colour(turt)
+        turt.begin_fill()
+        turt.circle(CIRCLE_RADIUS)
+        turt.end_fill()
+        turt.penup()
+
+        turt.forward(CIRCLE_GAP + CIRCLE_RADIUS)
+
+    turt.setheading(90)
+    turt.forward((CIRCLE_GAP + CIRCLE_RADIUS) * CIRCLES_UP)
+    turt.setheading(0)
+    turt.forward(CIRCLE_GAP + CIRCLE_RADIUS)
+    turt.setheading(270)
+
+
+screen.exitonclick()
