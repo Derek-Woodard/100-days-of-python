@@ -59,6 +59,7 @@ for _ in range(CIRCLES_SIDE):
     for _ in range(CIRCLES_UP):
         turt.pendown()
         turt = set_colour(turt)
+        # can also use turle.dot(radius,colour) to make the dots
         turt.begin_fill()
         turt.circle(CIRCLE_RADIUS)
         turt.end_fill()
