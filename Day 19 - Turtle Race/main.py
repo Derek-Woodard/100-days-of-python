@@ -5,8 +5,6 @@ allow the user to choose which they think will win
 from turtle import Turtle, Screen
 import random
 
-speeds = [3,4,5,6,7]
-
 screen = Screen()
 screen.setup(500,400)
 
@@ -16,41 +14,30 @@ choice = screen.textinput("Who will win?",
 turtles = []
 colours = ['red','orange','yellow','green','blue','purple']
 
+START_Y = 150
 
-red = Turtle("turtle")
-orange = Turtle("turtle")
-yellow = Turtle("turtle")
-green = Turtle("turtle")
-blue = Turtle("turtle")
-purple = Turtle("turtle")
+for colour in colours:
+    new_turtle = Turtle("turtle")
+    new_turtle.color(colour)
+    new_turtle.setheading(0)
+    new_turtle.penup()
+    new_turtle.setpos(-240, START_Y)
+    turtles.append(new_turtle)
+    START_Y -= 60
 
-turtles.append(red)
-turtles.append(orange)
-turtles.append(yellow)
-turtles.append(green)
-turtles.append(blue)
-turtles.append(purple)
+if choice:
+    RACING = True
 
-start_y = 150
-for i in range(len(turtles)):
-    turtles[i].color(colours[i])
-    turtles[i].setheading(0)
-    turtles[i].penup()
-    turtles[i].setpos(-240, start_y)
-    start_y -= 60
-
-racing = True
-
-while racing:
-    for i in range(len(turtles)):
-        turtles[i].forward(random.choice(speeds))
-        if turtles[i].xcor() >= 240:
-            winner = i
-            racing = False
+while RACING:
+    for turtle in turtles:
+        turtle.forward(random.randint(0,10))
+        if turtle.xcor() >= 230:
+            winner_index = turtles.index(turtle)
+            RACING = False
             break
 
-print(f"The winner was {colours[i]}")
-if colours[i] == choice:
+print(f"The winner was {colours[winner_index]}")
+if colours[winner_index] == choice:
     print("Your turtle won!")
 else:
     print("Your turtle lost.")
