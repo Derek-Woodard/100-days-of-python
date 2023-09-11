@@ -32,14 +32,11 @@ while RACING:
     for turtle in turtles:
         turtle.forward(random.randint(0,10))
         if turtle.xcor() >= 230:
-            winner_index = turtles.index(turtle)
+            winner = turtle.pencolor()
             RACING = False
-            break
-
-print(f"The winner was {colours[winner_index]}")
-if colours[winner_index] == choice:
-    print("Your turtle won!")
-else:
-    print("Your turtle lost.")
+            if winner == choice:
+                print(f"You won! {winner} was the winning turtle!")
+            else:
+                print(f"You lost. {winner} was the winning turtle.")
 
 screen.exitonclick()
