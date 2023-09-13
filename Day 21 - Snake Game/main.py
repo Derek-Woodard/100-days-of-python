@@ -49,7 +49,7 @@ while PLAYING:
 
     # detect tail collision
     for i in range(len(player.segments)-1):
-        if player.head.pos() == player.segments[i+1].pos():
+        if player.head.distance(player.segments[i+1]) < 19:
             PLAYING = False
 
 score.game_over()
