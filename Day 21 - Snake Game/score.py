@@ -1,6 +1,9 @@
 '''Use a turtle to display the score for the snake game.'''
 from turtle import Turtle
 
+FONT = ("Times New Roman", 20, "normal")
+ALLIGN = "center"
+
 class Score(Turtle):
     '''a score keep turtle'''
     def __init__(self):
@@ -19,4 +22,4 @@ class Score(Turtle):
 
     def show_score(self):
         '''display the score.'''
-        self.write(f"Score: {self.score}", False, "center", ("Times New Roman", 20, "normal"))
+        self.write(f"Score: {self.score}", False, ALLIGN, FONT)
