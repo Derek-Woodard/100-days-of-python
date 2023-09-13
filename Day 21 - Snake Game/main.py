@@ -9,8 +9,9 @@
 #TODO Step 7: detect collision with tail - game over screen
 
 import time
-from turtle import Turtle, Screen
+from turtle import  Screen
 from snake_body import Snake
+from food import Food
 
 screen = Screen()
 screen.setup(width=600,height=600)
@@ -19,6 +20,7 @@ screen.title("Snake using turtles")
 screen.tracer(0)
 
 player = Snake()
+food = Food()
 
 screen.listen()
 screen.onkeypress(player.turn_up,"Up")
@@ -27,13 +29,14 @@ screen.onkeypress(player.turn_down, "Down")
 screen.onkeypress(player.turn_left, "Left")
 
 PLAYING = True
-TEMP = 0
 
-#while PLAYING:
-while TEMP < 100:
+while PLAYING:
     time.sleep(0.1)
     player.move_snake()
     screen.update()
-    TEMP += 1
+
+    # detect food collision
+    if player.head.distance(food) < 15:
+        food.refresh()
 
 screen.exitonclick()
