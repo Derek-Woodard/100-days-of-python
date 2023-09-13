@@ -20,20 +20,21 @@ screen.tracer(0)
 
 player = Snake()
 
-playing = True
-temp = 0
+screen.listen()
+screen.onkeypress(player.turn_up,"Up")
+screen.onkeypress(player.turn_right, "Right")
+screen.onkeypress(player.turn_down, "Down")
+screen.onkeypress(player.turn_left, "Left")
 
-#while playing:
-while temp < 40:
-    screen.listen()
-    screen.onkeypress(player.turn_up,"Up")
-    screen.onkeypress(player.turn_right, "Right")
-    screen.onkeypress(player.turn_down, "Down")
-    screen.onkeypress(player.turn_left, "Left")
+PLAYING = True
+TEMP = 0
+
+#while PLAYING:
+while TEMP < 100:
 
     time.sleep(0.1)
     screen.update()
     player.move_snake()
-    temp += 1
+    TEMP += 1
 
 screen.exitonclick()

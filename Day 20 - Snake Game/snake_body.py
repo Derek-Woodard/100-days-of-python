@@ -1,6 +1,7 @@
 '''the snake body'''
 
 from turtle import Turtle
+MOVE_DISTANCE = 20
 
 class Snake():
     '''The snake class that tracks the number of segments
@@ -19,7 +20,7 @@ class Snake():
         '''move the snake forwards'''
         for seg in reversed(self.segments):
             if self.segments.index(seg) == 0:
-                seg.forward(20)
+                seg.forward(MOVE_DISTANCE)
             else:
                 new_x = self.segments[self.segments.index(seg) - 1].xcor()
                 new_y = self.segments[self.segments.index(seg) - 1].ycor()
