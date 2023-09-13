@@ -22,5 +22,14 @@ def breathe(self):
 
 
 slicing
-- 
+- slicing allows you to take smaller sub-lists from a list
+ex. if you have a list called piano_keys = [a,b,c,d,e,f,g]
+piano_keys[2:5] will be a sublist [c,d,e]
+the first number in inclusive, the second number is exclusive
+imagine the numbers are between each list item with 0 before the first item
+
+to slice you can use [start:end:jump distance]
+if jump distance is negative, you can go backwards
+
+slicing can also be done on tuples
 '''
