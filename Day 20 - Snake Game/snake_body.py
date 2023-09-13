@@ -16,20 +16,32 @@ class Snake():
             segment.setpos(i*-20, 0)
 
     def move_snake(self):
-        for seg in self.segments:   
-            seg.forward(20)
+        '''move the snake forwards'''
+        for seg in reversed(self.segments):   
+            if self.segments.index(seg) == 0:
+                seg.forward(20)
+            else:
+                new_x = self.segments[self.segments.index(seg) - 1].xcor()
+                new_y = self.segments[self.segments.index(seg) - 1].ycor()
+                seg.goto(new_x, new_y) 
 
-            # if self.segments.index(seg) == 0:
-            #     temp_loc = seg.pos()
-            #     seg.forward(3)
-            # else:
-            #     movement = temp_loc - seg.pos()
-            #     print(temp_loc)
-            #     print(seg.pos())
-            #     print(f"{movement} segment {self.segments.index(seg)}")
-            #     seg.goto(movement)
-            #     temp_loc = seg.pos()
                 
+    def turn_up(self):
+        '''turn the snake up'''
+        self.segments[0].setheading(90)    
+        
+
+    def turn_left(self):
+        '''turn the snake left'''
+        self.segments[0].setheading(180)   
 
 
-    # def turn_snake(self, direction):
+    def turn_down(self):
+        '''turn the snake down'''
+        self.segments[0].setheading(270)
+
+                    
+    def turn_right(self):
+        '''turn the snake right'''
+        self.segments[0].setheading(0)
+        

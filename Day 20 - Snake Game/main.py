@@ -25,8 +25,11 @@ temp = 0
 
 #while playing:
 while temp < 40:
-    # screen.listen()
-    # screen.onkeypress(,"up")
+    screen.listen()
+    screen.onkeypress(player.turn_up,"Up")
+    screen.onkeypress(player.turn_right, "Right")
+    screen.onkeypress(player.turn_down, "Down")
+    screen.onkeypress(player.turn_left, "Left")
 
     time.sleep(0.1)
     screen.update()
