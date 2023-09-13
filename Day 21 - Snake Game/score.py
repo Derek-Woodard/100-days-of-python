@@ -8,7 +8,7 @@ class Score(Turtle):
         self.score = 0
         self.penup()
         self.pencolor("white")
-        self.goto(0, 280)
+        self.goto(0, 270)
         self.show_score()
 
     def increase(self):
@@ -19,4 +19,4 @@ class Score(Turtle):
 
     def show_score(self):
         '''display the score.'''
-        self.write(f"Score: {self.score}", False, "center", ("Times New Roman", 15, "normal"))
+        self.write(f"Score: {self.score}", False, "center", ("Times New Roman", 20, "normal"))
