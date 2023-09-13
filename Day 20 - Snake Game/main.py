@@ -7,3 +7,15 @@
 #TODO Step 5: create scoreboard - track number of food pieces
 #TODO Step 6: detect wall collisions - game over screen
 #TODO Step 7: detect collision with tail - game over screen
+
+from turtle import Turtle, Screen
+
+screen = Screen()
+screen.setup(w = 600,h = 600)
+screen.bgcolor("black")
+screen.title("Snake using turtles")
+
+
+
+
+screen.exitonclick()
