@@ -56,7 +56,5 @@ class Snake():
         new_segment = Turtle("square")
         new_segment.color("white")
         new_segment.penup()
-        new_segment.setpos(self.segments[len(self.segments)-1].xcor(),
-                           self.segments[len(self.segments)-1].ycor()
-        )
+        new_segment.setpos(self.segments[-1].xcor(), self.segments[-1].ycor())
         self.segments.append(new_segment)
