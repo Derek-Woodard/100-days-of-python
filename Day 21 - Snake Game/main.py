@@ -43,4 +43,15 @@ while PLAYING:
         score.increase()
         player.add_segment()
 
+    # detect wall collision
+    if player.head.xcor() > 280 or player.head.xcor() < -280 or player.head.ycor() > 280 or player.head.ycor() < -280:
+        PLAYING = False
+
+    # detect tail collision
+    for i in range(len(player.segments)-1):
+        if player.head.pos() == player.segments[i+1].pos():
+            PLAYING = False
+
+score.game_over()
+
 screen.exitonclick()
