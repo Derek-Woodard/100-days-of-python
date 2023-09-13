@@ -51,3 +51,10 @@ class Snake():
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
         
+    def add_segment(self):
+        '''add a new segment to the end of the snake.'''
+        new_segment = Turtle("square")
+        new_segment.color("white")
+        new_segment.penup()
+        new_segment.setpos(self.segments[len(self.segments)-1].xcor(),self.segments[len(self.segments)-1].ycor())
+        self.segments.append(new_segment)

@@ -3,7 +3,7 @@
 # Step 1: create the snake body - uise 3 squares
 # Step 2: move the snake - always moving forward - can change direction
 # Step 3: control the snake - use arrow keys
-#TODO Step 4: detect collision for food - add food, and make snake grow
+# Step 4: detect collision for food - add food, and make snake grow
 # Step 5: create scoreboard - track number of food pieces
 #TODO Step 6: detect wall collisions - game over screen
 #TODO Step 7: detect collision with tail - game over screen
@@ -41,5 +41,6 @@ while PLAYING:
     if player.head.distance(food) < 15:
         food.refresh()
         score.increase()
+        player.add_segment()
 
 screen.exitonclick()
