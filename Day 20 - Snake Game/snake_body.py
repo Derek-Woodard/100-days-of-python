@@ -15,6 +15,7 @@ class Snake():
             segment.penup()
             self.segments.append(segment)
             segment.setpos(i*-20, 0)
+        self.head = self.segments[0]
 
     def move_snake(self):
         '''move the snake forwards'''
@@ -28,17 +29,17 @@ class Snake():
 
     def turn_up(self):
         '''turn the snake up'''
-        self.segments[0].setheading(90)
+        self.head.setheading(90)
 
     def turn_left(self):
         '''turn the snake left'''
-        self.segments[0].setheading(180)
+        self.head.setheading(180)
 
     def turn_down(self):
         '''turn the snake down'''
-        self.segments[0].setheading(270)
+        self.head.setheading(270)
 
     def turn_right(self):
         '''turn the snake right'''
-        self.segments[0].setheading(0)
+        self.head.setheading(0)
         

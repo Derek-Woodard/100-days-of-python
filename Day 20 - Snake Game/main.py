@@ -31,10 +31,9 @@ TEMP = 0
 
 #while PLAYING:
 while TEMP < 100:
-
     time.sleep(0.1)
-    screen.update()
     player.move_snake()
+    screen.update()
     TEMP += 1
 
 screen.exitonclick()
