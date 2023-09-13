@@ -2,6 +2,10 @@
 
 from turtle import Turtle
 MOVE_DISTANCE = 20
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 class Snake():
     '''The snake class that tracks the number of segments
@@ -29,17 +33,21 @@ class Snake():
 
     def turn_up(self):
         '''turn the snake up'''
-        self.head.setheading(90)
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
 
     def turn_left(self):
         '''turn the snake left'''
-        self.head.setheading(180)
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
 
     def turn_down(self):
         '''turn the snake down'''
-        self.head.setheading(270)
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
 
     def turn_right(self):
         '''turn the snake right'''
-        self.head.setheading(0)
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
         
