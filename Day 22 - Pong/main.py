@@ -12,11 +12,35 @@ The Pong game created using turtles
 #TODO Step 6) Give the ball collision with the paddles to bounce
 #TODO Step 7) Create a scoreboard class that can track/display the score values
 
-from turtle import Screen
+from turtle import Turtle, Screen
+
+SCREEN_W = 900
+SCREEN_H = 700
 
 screen = Screen()
-screen.setup(900, 700)
+screen.setup(SCREEN_W, SCREEN_H)
 screen.bgcolor('black')
+screen.delay(-1)
+
+playing = True
+
+lines = Turtle()
+lines.color('white')
+lines.penup()
+lines.goto(0,SCREEN_H/2)
+lines.setheading(270)
+lines.hideturtle()
+lines.pensize(5)
+
+for _ in range(20):
+    lines.pendown()
+    lines.forward(17.5)
+    lines.penup()
+    lines.forward(17.5)
+
+screen.update()
+
+# while playing:
 
 
 screen.exitonclick()
