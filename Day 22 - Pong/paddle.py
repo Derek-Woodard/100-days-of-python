@@ -1,0 +1,1 @@
+'''A class representing the two player paddles'''
