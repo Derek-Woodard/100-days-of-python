@@ -16,9 +16,11 @@ class Paddle():
 
     def move_up(self):
         '''move the paddle up'''
-        self.paddle.forward(10)
+        if self.paddle.ycor() < 300:
+            self.paddle.forward(10)
 
     def move_down(self):
         '''move the paddle down'''
-        self.paddle.backward(10)
+        if self.paddle.ycor() > -290:
+            self.paddle.backward(10)
         
