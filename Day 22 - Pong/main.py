@@ -12,8 +12,10 @@ The Pong game created using turtles
 #TODO Step 6) Give the ball collision with the paddles to bounce
 #TODO Step 7) Create a scoreboard class that can track/display the score values
 
+import time
 from turtle import Turtle, Screen
 from paddle import Paddle
+from ball import Ball
 
 SCREEN_W = 900
 SCREEN_H = 700
@@ -21,11 +23,13 @@ SCREEN_H = 700
 screen = Screen()
 screen.setup(SCREEN_W, SCREEN_H)
 screen.bgcolor('black')
-screen.delay(-1)
+screen.tracer(0)
 screen.listen()
 
 player_1 = Paddle(1, -400)
 player_2 = Paddle(2, 400)
+
+ball = Ball()
 
 playing = True
 
@@ -42,15 +46,19 @@ screen.onkeypress(player_1.move_down, 's')
 screen.onkeypress(player_2.move_up, 'Up')
 screen.onkeypress(player_2.move_down, 'Down')
 
+screen.onkeypress(ball.wall_bounce, 'b')
+
 for _ in range(20):
     lines.pendown()
     lines.forward(17.5)
     lines.penup()
     lines.forward(17.5)
 
-screen.update()
 
-# while playing:
+while playing:
+    time.sleep(0.1)
+    ball.move_ball()
+    screen.update()
 
 
 screen.exitonclick()
