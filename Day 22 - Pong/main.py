@@ -46,7 +46,6 @@ screen.onkeypress(player_1.move_down, 's')
 screen.onkeypress(player_2.move_up, 'Up')
 screen.onkeypress(player_2.move_down, 'Down')
 
-screen.onkeypress(ball.wall_bounce, 'b')
 
 for _ in range(20):
     lines.pendown()
@@ -56,8 +55,17 @@ for _ in range(20):
 
 
 while playing:
-    time.sleep(0.1)
+    time.sleep(0.051)
     ball.move_ball()
+
+    if ball.y_location > 338 or ball. y_location < -338:
+        ball.wall_bounce()
+
+    # if ball.
+
+    if ball.x_location > 438 or ball.x_location < - 438:
+        ball.paddle_bounce()
+
     screen.update()
 
 
