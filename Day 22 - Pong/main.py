@@ -13,6 +13,7 @@ The Pong game created using turtles
 #TODO Step 7) Create a scoreboard class that can track/display the score values
 
 from turtle import Turtle, Screen
+from paddle import Paddle
 
 SCREEN_W = 900
 SCREEN_H = 700
@@ -21,6 +22,10 @@ screen = Screen()
 screen.setup(SCREEN_W, SCREEN_H)
 screen.bgcolor('black')
 screen.delay(-1)
+screen.listen()
+
+player_1 = Paddle(1, -400)
+player_2 = Paddle(2, 400)
 
 playing = True
 
@@ -31,6 +36,11 @@ lines.goto(0,SCREEN_H/2)
 lines.setheading(270)
 lines.hideturtle()
 lines.pensize(5)
+
+screen.onkeypress(player_1.move_up, 'w')
+screen.onkeypress(player_1.move_down, 's')
+screen.onkeypress(player_2.move_up, 'Up')
+screen.onkeypress(player_2.move_down, 'Down')
 
 for _ in range(20):
     lines.pendown()
