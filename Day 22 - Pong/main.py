@@ -16,6 +16,7 @@ import time
 from turtle import Turtle, Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Score
 
 SCREEN_W = 900
 SCREEN_H = 700
@@ -29,9 +30,12 @@ screen.listen()
 player_1 = Paddle(1, -400)
 player_2 = Paddle(2, 400)
 
+score_1 = Score(1)
+score_2 = Score(2)
+
 ball = Ball()
 
-playing = True
+PLAYING = True
 
 lines = Turtle()
 lines.color('white')
@@ -54,7 +58,7 @@ for _ in range(20):
     lines.forward(17.5)
 
 
-while playing:
+while PLAYING:
     time.sleep(0.051)
     ball.move_ball()
 
@@ -66,16 +70,20 @@ while playing:
     # give point to opposing team and update their score
     if ball.x_location > 440:
         ball.respawn()
-        # score.add(1)
+        score_1.increase_score()
+    
+    if ball.x_location < -440:
+        ball.respawn()
+        score_2.increase_score()
 
     # check for bounce on collision with paddles
     # right paddle
-    if ball.x_location > 390 and ball.x_location < 410:
+    if ball.x_location > 380 and ball.x_location < 420:
         if ball.y_location < player_2.y_top + 10 and ball.y_location > player_2.y_bottom - 10:
             ball.paddle_bounce()
 
     # left paddle
-    if ball.x_location < -390 and ball.x_location > -410:
+    if ball.x_location < -380 and ball.x_location > -420:
         if ball.y_location < player_1.y_top + 10 and ball.y_location > player_1.y_bottom - 10:
             ball.paddle_bounce()
 
