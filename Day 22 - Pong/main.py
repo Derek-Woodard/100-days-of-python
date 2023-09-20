@@ -58,13 +58,26 @@ while playing:
     time.sleep(0.051)
     ball.move_ball()
 
+    # check for bounce on upper and lower walls
     if ball.y_location > 338 or ball. y_location < -338:
         ball.wall_bounce()
 
-    # if ball.
+    # check for ball contact with the left or right wall
+    # give point to opposing team and update their score
+    if ball.x_location > 440:
+        ball.respawn()
+        # score.add(1)
 
-    if ball.x_location > 438 or ball.x_location < - 438:
-        ball.paddle_bounce()
+    # check for bounce on collision with paddles
+    # right paddle
+    if ball.x_location > 390 and ball.x_location < 410:
+        if ball.y_location < player_2.y_top + 10 and ball.y_location > player_2.y_bottom - 10:
+            ball.paddle_bounce()
+
+    # left paddle
+    if ball.x_location < -390 and ball.x_location > -410:
+        if ball.y_location < player_1.y_top + 10 and ball.y_location > player_1.y_bottom - 10:
+            ball.paddle_bounce()
 
     screen.update()
 

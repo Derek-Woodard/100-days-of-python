@@ -15,9 +15,6 @@ class Ball:
         self.x_location = 0
         self.y_location = 0
 
-        self.angle = 70
-
-
     def move_ball(self):
         '''move the ball'''
         self.x_location += self.x_direction
@@ -32,3 +29,11 @@ class Ball:
     def paddle_bounce(self):
         '''bounce the ball, reversing the horizontal direction'''
         self.x_direction = -self.x_direction
+
+    def respawn(self):
+        '''respawn the ball in the centre of the screen and change the direction.'''
+        self.x_location = 0
+        self.y_location = 0
+        self.x_direction *= -1
+        self.ball.goto(self.x_location, self.y_location)
+        
