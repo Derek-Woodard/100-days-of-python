@@ -71,7 +71,7 @@ while PLAYING:
     if ball.x_location > 440:
         ball.respawn()
         score_1.increase_score()
-    
+
     if ball.x_location < -440:
         ball.respawn()
         score_2.increase_score()
