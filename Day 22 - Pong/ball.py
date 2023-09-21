@@ -9,8 +9,8 @@ class Ball:
         self.ball.penup()
         self.ball.color('white')
 
-        self.x_direction = 5
-        self.y_direction = 5
+        self.x_direction = 3
+        self.y_direction = 3
 
         self.x_location = 0
         self.y_location = 0
@@ -36,4 +36,3 @@ class Ball:
         self.y_location = 0
         self.x_direction *= -1
         self.ball.goto(self.x_location, self.y_location)
-        

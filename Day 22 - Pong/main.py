@@ -57,37 +57,54 @@ for _ in range(20):
     lines.penup()
     lines.forward(17.5)
 
+screen.update()
+screen.tracer(1)
+
+# a check to ensure the ball does not get stuck inside a paddle
+BOUNCED = False
 
 while PLAYING:
-    time.sleep(0.051)
+    # time.sleep(0.051)
     ball.move_ball()
 
     # check for bounce on upper and lower walls
     if ball.y_location > 338 or ball. y_location < -338:
         ball.wall_bounce()
 
+    # check if ball has crossed the centre line to allow paddle bouncing again
+    if ball.x_location > -10 and ball.x_location < 10:
+        BOUNCED = False
+
     # check for ball contact with the left or right wall
     # give point to opposing team and update their score
     if ball.x_location > 440:
+        screen.tracer(0)
         ball.respawn()
         score_1.increase_score()
+        screen.tracer(1)
 
     if ball.x_location < -440:
+        screen.tracer(0)
         ball.respawn()
         score_2.increase_score()
+        screen.tracer(1)
 
     # check for bounce on collision with paddles
     # right paddle
     if ball.x_location > 380 and ball.x_location < 420:
         if ball.y_location < player_2.y_top + 10 and ball.y_location > player_2.y_bottom - 10:
-            ball.paddle_bounce()
+            if not BOUNCED:
+                ball.paddle_bounce()
+                BOUNCED = True
 
     # left paddle
     if ball.x_location < -380 and ball.x_location > -420:
         if ball.y_location < player_1.y_top + 10 and ball.y_location > player_1.y_bottom - 10:
-            ball.paddle_bounce()
+            if not BOUNCED:
+                ball.paddle_bounce()
+                BOUNCED = True
 
-    screen.update()
+    # screen.update()
 
 
 screen.exitonclick()
