@@ -12,12 +12,23 @@ once the turtle hits a car, it's game over
 #TODO give cars random colours
 #TODO make scoreboard class to track progress
 
+import time
 from turtle import Screen
+from player import Player
 
 screen = Screen()
-screen.setup(600, 600)
-screen.bgcolor('black')
+screen.setup(width=600, height=600)
+screen.tracer(0)
+screen.listen()
 
+player = Player()
 
+screen.onkeypress(player.move_forward, 'Up')
+
+PLAYING = True
+
+while PLAYING:
+    time.sleep(0.1)
+    screen.update()
 
 screen.exitonclick()
