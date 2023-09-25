@@ -23,3 +23,8 @@ class Scoreboard(Turtle):
         self.level += 1
         self.undo()
         self.show_score()
+
+    def game_over(self):
+        '''display the final score at game over'''
+        end_text = Turtle(visible=False)
+        end_text.write(f'Game over! You made it to level {self.level}', False, 'center', ('Courier', 12, 'normal'))

@@ -5,11 +5,11 @@ once the turtle hits a car, it's game over
 '''
 # make starter screen - 600 x 600, tracer(0), update to refresh
 # Make player turtle class - can only move forwards
-#TODO Make car class - have speed attribute that moves them from right to left
-#TODO when player reaches top, move them to bottom, increase car speed attribute
-#TODO spawn in cars on right side at random heights (not at player start height)
+# Make car class - have speed attribute that moves them from right to left
+# when player reaches top, move them to bottom, increase car speed attribute
+# spawn in cars on right side at random heights (not at player start height)
 #TODO set up game over screen for player/car collision
-#TODO give cars random colours
+# give cars random colours
 # make scoreboard class to track progress
 
 import time
@@ -48,7 +48,13 @@ while PLAYING:
         car_manager.add_car()
 
     car_manager.move_cars()
-    # car_manager.remove_car()
+
+    for car in car_manager.car_list:
+        if abs(player.ycor() - car.ycor()) < 20:
+            if player.distance(car) < 40:
+                PLAYING = False
+                level.game_over()
+
     screen.update()
 
 screen.exitonclick()
