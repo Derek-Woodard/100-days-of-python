@@ -24,14 +24,6 @@ class Cars():
         new_car.goto(330, choice(SPAWN_RANGE))
         self.car_list.append(new_car)
 
-    # def remove_car(self):
-    #     '''ensure no cars off the left of the screen are maintained'''
-    #     new_cars = []
-    #     for car in self.car_list:
-    #         if car.xcor() > -330:
-    #             new_cars.append(car)
-    #     self.car_list = new_cars
-
     def move_cars(self):
         '''move all the cars in the list by the increment'''
         for car in self.car_list:

@@ -3,15 +3,6 @@ essentially frogger but with a turtle and randomly coloured rectangles travellin
 once the turtle reaches the end, the cars speed up and the player resets at the bottom
 once the turtle hits a car, it's game over
 '''
-# make starter screen - 600 x 600, tracer(0), update to refresh
-# Make player turtle class - can only move forwards
-# Make car class - have speed attribute that moves them from right to left
-# when player reaches top, move them to bottom, increase car speed attribute
-# spawn in cars on right side at random heights (not at player start height)
-#TODO set up game over screen for player/car collision
-# give cars random colours
-# make scoreboard class to track progress
-
 import time
 from random import random
 from turtle import Screen
