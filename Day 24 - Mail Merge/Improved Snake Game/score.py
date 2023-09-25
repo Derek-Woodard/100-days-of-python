@@ -31,8 +31,3 @@ class Score(Turtle):
             self.hi_score = self.score
         self.score = 0
         self.show_score()
-        
-    # def game_over(self):
-    #     '''print game over in the center of the screen.'''
-    #     self.goto(0,0)
-    #     self.write("GAME OVER", False, ALLIGN, FONT)
