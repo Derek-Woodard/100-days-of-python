@@ -15,11 +15,16 @@ once the turtle hits a car, it's game over
 import time
 from turtle import Screen
 from player import Player
+from scoreboard import Scoreboard
+
+FINISH_LINE_Y = 280
 
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 screen.listen()
+
+level = Scoreboard()
 
 player = Player()
 
@@ -29,6 +34,10 @@ PLAYING = True
 
 while PLAYING:
     time.sleep(0.1)
+
+    if player.ycor() > FINISH_LINE_Y:
+        player.respawn()
+
     screen.update()
 
 screen.exitonclick()

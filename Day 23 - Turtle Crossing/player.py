@@ -3,7 +3,6 @@ from turtle import Turtle
 
 STARTING_POSITION = (0, -200)
 MOVE_DISTANCE = 10
-FINISH_LINE_Y = 280
 
 class Player(Turtle):
     '''the player turtle class'''
@@ -16,3 +15,7 @@ class Player(Turtle):
     def move_forward(self):
         '''move the player forwards'''
         self.forward(MOVE_DISTANCE)
+
+    def respawn(self):
+        '''reset the turtle location back to the start'''
+        self.goto(STARTING_POSITION)
