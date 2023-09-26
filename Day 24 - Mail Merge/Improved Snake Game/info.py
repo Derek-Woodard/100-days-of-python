@@ -6,11 +6,15 @@ ex.
 file = open('info.txt')
 contents = file.read()
 print(contents)
-'''
-import os
-import sys
+file.close()
 
-file = open(os.path.join(sys.path[0], "info.txt"), "r")
-# file = open('info.txt')
-contents = file.read()
-print(contents)
+can use to avoid the need to close the file
+with open('file_name.txt') as file:
+    contents = file.read()
+    print(contents)
+'''
+
+# os.chdir('Day 24 - Mail Merge\Improved Snake Game')
+with open('Day 24 - Mail Merge/Improved Snake Game/test.txt') as file:
+    contents = file.read()
+    print(contents)
