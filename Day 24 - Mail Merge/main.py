@@ -10,14 +10,15 @@
 with open('Day 24 - Mail Merge/Input/Letters/starting_letter.txt') as base_template:
     template = base_template.read()
 
-TEMP = "\n"
-
 with open('Day 24 - Mail Merge/Input/Names/invited_names.txt') as names:
-    while TEMP:
-        TEMP = names.readline().strip()
-        if TEMP != "":
-            new_letter = template.replace("[name]", TEMP)
-            letter_name = f"Letter_for_{TEMP}.txt"
+    name_list = names.readlines()
 
-            with open(f"Day 24 - Mail Merge/Output/ReadyToSend/{letter_name}", "w") as output_letter:
-                output_letter.write(new_letter)
+for name in name_list:
+
+    stripped_name = name.strip()
+
+    new_letter = template.replace("[name]", stripped_name)
+    letter_name = f"Letter_for_{stripped_name}.txt"
+
+    with open(f"Day 24 - Mail Merge/Output/ReadyToSend/{letter_name}", "w") as output_letter:
+        output_letter.write(new_letter)
