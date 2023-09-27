@@ -9,7 +9,7 @@ from turtle import Turtle, Screen
 # Below is used to extract and create a list of colours
 # for simplicity, that list is copied and made into a list.
 # # extract colours from the image
-# extracted_colours = colorgram.extract("Hirst_image.jpg", 30)
+# extracted_colours = colorgram.extract("Day 18 - Hirst Painting Prokect/Hirst_image.jpg", 30)
 
 # colours = []
 
