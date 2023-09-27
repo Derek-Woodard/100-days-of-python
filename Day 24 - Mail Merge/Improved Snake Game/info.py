@@ -25,9 +25,24 @@ with open('file path', mode="a") as file:
     file.write('\nnew text.')
 
 opening a file in write mode will create a new file from scratch
+
+absolute file paths start relative to the root - which is: /
+the root is essentially the hard drive (usually C)
+
+relative file paths start from the folder you are currently working from
+also known as the working directory
+the relative file path can be start with: ./ 
+this means look from the folder I am currently in
+
+to go backwards in the directory tree (one step up from the current folder)
+../ will go to the parent of the current folder
+
+to get a file in the same directory, use: ./
+it is not typically neccesary though
+
+
 '''
 
-# os.chdir('Day 24 - Mail Merge\Improved Snake Game')
 with open('Day 24 - Mail Merge/Improved Snake Game/test.txt') as file:
     contents = file.read()
     print(contents)
