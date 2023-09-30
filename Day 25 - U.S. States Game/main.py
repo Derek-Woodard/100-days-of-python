@@ -9,8 +9,6 @@ screen.setup(width=750,height=550)
 screen.bgpic('Day 25 - U.S. States Game/blank_states_img.gif')
 screen.update()
 
-QUIZ_ACTIVE = True
-
 data = pandas.read_csv('Day 25 - U.S. States Game/50_states.csv')
 state_list = data.state.to_list()
 known_list = []
@@ -18,7 +16,7 @@ known_list = []
 dot_marker = Turtle(visible=False)
 dot_marker.penup()
 
-while len(known_list) < 50 and QUIZ_ACTIVE:
+while len(known_list) < 50:
     guess = (turtle.textinput(f"{len(known_list)}/50", "Name any U.S. State - type 'quit' to exit")).title()
 
     if guess in state_list and guess not in known_list:
@@ -30,8 +28,12 @@ while len(known_list) < 50 and QUIZ_ACTIVE:
         known_list.append(guess)
 
     if guess == "Quit":
-        QUIZ_ACTIVE = False
+        break
 
+states_to_learn = []
+for state in state_list:
+    if state not in known_list:
+        states_to_learn.append(state)
 
-
-turtle.mainloop()
+states_to_learn_csv = pandas.DataFrame(states_to_learn)
+states_to_learn_csv.to_csv('Day 25 - U.S. States Game/Staes_to_Learn.csv')
