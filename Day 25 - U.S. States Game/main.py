@@ -26,6 +26,9 @@ while QUIZ_ACTIVE:
         state_row = data[data.state == guess]
         dot_marker.goto(int(state_row.x), int(state_row.y))
         dot_marker.dot(5, "blue")
+        dot_marker.setheading(90)
+        dot_marker.forward(10)
+        dot_marker.write(f'{guess}',False,'left',("Times New Roman", 8, "normal"))
 
         known_list.append(guess)
 
