@@ -38,7 +38,7 @@ letters_list = [letter for letter in NAME]
 # challenge:
 # create a range from 1-5 using range(1,5) that doubles the values:
 range_list = [number * 2 for number in range(1,5)]
-print(range_list)
+# print(range_list)
 
 # conditional list comprehension: new_list = [n + 1 for n in numbers if test]
 # if test allows us to only add new_item if test passes
@@ -46,9 +46,24 @@ print(range_list)
 names = ["Alex", "Beth", "Caroline", "Dave", "Eleanor", "Freddie"]
 # make a new list that only has the names with 4 or fewer letters
 short_names = [name for name in names if len(name) < 5]
-print(short_names)
+# print(short_names)
 
 # challenge
 # take above list of names and any name with 5+ letters gets turned into the upper case version
 long_names = [name.upper() for name in names if len(name) > 4]
-print(long_names)
+# print(long_names)
+
+# exercises:
+# Take a list and square all the values in it to form a new list
+numbers = [1,1,2,3,4,8,13,21,34,55]
+squared_numbers = [num ** 2 for num in numbers]
+# print(squared_numbers)
+
+# Take input to form a list of numbers - use list comprehension to convert from string
+list_of_strings = input().split(',')
+list_of_nums = [int(num_string) for num_string in list_of_strings]
+# filter out the odd numbers
+list_of_evens = [num for num in list_of_nums if num % 2 == 0]
+# print(list_of_evens)
+
+# create a new list covering data overlap between two different lists from text files
